@@ -239,10 +239,10 @@ abstract class BaseBlockAdmin extends AbstractAdmin
         $service = $this->blockManager->get($block);
 
         $resolver = new OptionsResolver();
-        $service->setDefaultSettings($resolver);
+        $service->configureSettings($resolver);
 
         try {
-            $block->configureSettings($resolver->resolve($block->getSettings()));
+            $block->setSettings($resolver->resolve($block->getSettings()));
         } catch (InvalidOptionsException $e) {
             // @TODO : add a logging error or a flash message
         }
