@@ -8,7 +8,7 @@
         <field name="enabled" type="boolean" column="enabled" default="false"/>
         <field name="decorate" type="boolean" column="decorate" default="false"/>
         <field name="edited" type="boolean" column="edited" default="false"/>
-        <!--<field name="name" type="string" column="name" length="255"/>-->
+        <field name="name" type="string" column="name" length="255"/>
         <field name="slug" type="text" column="slug" nullable="true"/>
         <field name="url" type="text" column="url" nullable="true"/>
         <field name="customUrl" type="text" column="custom_url" nullable="true"/>
