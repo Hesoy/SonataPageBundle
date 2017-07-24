@@ -36,7 +36,7 @@ class SiteAdminController extends Controller
             throw new AccessDeniedException();
         }
 
-        $id = $this->get('request')->get($this->admin->getIdParameter());
+        $id = $this->get('request_stack')->get($this->admin->getIdParameter());
 
         $object = $this->admin->getObject($id);
 
