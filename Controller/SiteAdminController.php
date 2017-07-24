@@ -36,7 +36,7 @@ class SiteAdminController extends Controller
             throw new AccessDeniedException();
         }
 
-        $id = $this->get('request_stack')->get($this->admin->getIdParameter());
+        $id = $this->get('request_stack')->getCurrentRequest()->get($this->admin->getIdParameter());
 
         $object = $this->admin->getObject($id);
 
@@ -46,7 +46,7 @@ class SiteAdminController extends Controller
 
         $this->admin->setSubject($object);
 
-        if ($this->get('request')->getMethod() == 'POST') {
+        if ($this->get('request_stack')->getCurrentRequest()->getMethod() == 'POST') {
             $this->get('sonata.notification.backend')
                 ->createAndPublish('sonata.page.create_snapshots', array(
                     'siteId' => $object->getId(),
